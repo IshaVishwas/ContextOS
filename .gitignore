@@ -1,0 +1,27 @@
+# Environment variables
+.env
+
+# ChromaDB
+chroma_db/
+backend/chroma_db/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.pytest_cache/
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# DB
+postgres_data/

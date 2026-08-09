@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="icons/icon48.png" alt="ContextOS" id="logo" onerror="this.style.display='none'">
+      <h2>ContextOS</h2>
+    </div>
+
+    <div class="status-box">
+      <label class="switch">
+        <input type="checkbox" id="enableToggle">
+        <span class="slider round"></span>
+      </label>
+      <span id="statusText">Enabled</span>
+    </div>
+
+    <div class="config-box">
+      <label for="backendUrl">Backend URL</label>
+      <input type="text" id="backendUrl" placeholder="http://127.0.0.1:8000">
+      <button id="saveBtn">Save URL</button>
+    </div>
+
+    <!-- Account & JWT Authentication Box -->
+    <div class="config-box" style="margin-top: 10px;">
+      <label>ContextOS Account</label>
+      <input type="email" id="authEmail" placeholder="ext_user@contextos.ai" style="margin-bottom: 6px;">
+      <input type="password" id="authPassword" placeholder="••••••••" style="margin-bottom: 6px;">
+      <div style="display: flex; gap: 6px;">
+        <button id="loginBtn" style="flex: 1;">Login</button>
+        <button id="registerBtn" style="flex: 1; background: rgba(255,255,255,0.1);">Register</button>
+      </div>
+      <div id="authStatusMsg" style="font-size: 11px; margin-top: 6px; color: #a1a1aa;">Not logged in</div>
+    </div>
+
+    <div class="info-box">
+      <p>Provider: <span id="providerStatus" class="highlight">Detecting...</span></p>
+      <p>Backend Status: <span id="connStatus" class="highlight">Unknown</span></p>
+      <p>Response Time: <span id="respTime" class="highlight">N/A</span></p>
+      <div style="font-size: 10px; text-align: left; margin-top: 10px; display: flex; justify-content: space-between;">
+        <div>
+          <div>Last Request: <span id="lastReq">N/A</span></div>
+          <div>Last Response: <span id="lastRes">N/A</span></div>
+        </div>
+        <button id="refreshBtn" class="small-btn">Refresh</button>
+      </div>
+    </div>
+
+    <!-- Optimization Dashboard -->
+    <div id="evalDashboard" class="dashboard-box" style="display: none;">
+      <h3>Optimization Dashboard</h3>
+      
+      <div class="metrics-grid">
+        <div class="metric">
+          <span class="label">Ratio</span>
+          <span id="compressionRatio" class="val highlight">0%</span>
+        </div>
+        <div class="metric">
+          <span class="label">Saved</span>
+          <span id="tokensSaved" class="val">0</span>
+        </div>
+        <div class="metric">
+          <span class="label">Latency</span>
+          <span id="evalLatency" class="val">0ms</span>
+        </div>
+        <div class="metric">
+          <span class="label">Memories</span>
+          <span id="evalMemories" class="val">0</span>
+        </div>
+      </div>
+
+      <div class="comparison-view">
+        <div class="col">
+          <div class="col-title">Original</div>
+          <div id="origTokens" class="col-val">0</div>
+        </div>
+        <div class="arrow">↓</div>
+        <div class="col">
+          <div class="col-title">Optimized</div>
+          <div id="compTokens" class="col-val highlight">0</div>
+        </div>
+      </div>
+
+      <div class="expandable-section">
+        <details>
+          <summary>View Original Prompt</summary>
+          <div class="prompt-box" id="origPromptText"></div>
+          <button id="copyOrigBtn" class="small-btn mt-2">Copy</button>
+        </details>
+      </div>
+      
+      <div class="expandable-section mt-2">
+        <details>
+          <summary>View Optimized Prompt</summary>
+          <div class="prompt-box" id="optPromptText"></div>
+          <button id="copyOptBtn" class="small-btn mt-2">Copy</button>
+        </details>
+      </div>
+    </div>
+
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
