@@ -111,6 +111,17 @@ During the development and ablation studies, several key findings emerged:
 3. **Query-distance SCC is flawed:** Using query-distance for redundancy detection leads to false deduplications.
 4. **Candidate-to-candidate cosine similarity is superior:** Direct semantic comparison of candidates radically improves information preservation.
 
+### ✅ Verification
+
+- Backend test suite: **44/44 tests passing**
+- Authentication and JWT tests: passing
+- Cross-user isolation tests: passing
+- RAG / retrieval pipeline tests: passing
+- CAM / SCC / APC tests: passing
+- Gemini browser-extension integration: verified
+- React dashboard: verified
+- Chrome extension → FastAPI → LLM pipeline: verified
+
 ## 📂 Project Structure
 - `backend/app/api`: FastAPI route definitions and JWT dependency injection.
 - `backend/app/crud`: Database operations and user management.
@@ -137,5 +148,4 @@ python test_qa.py
 
 ## 🔮 Future Work
 - Implement actual refresh tokens for extended sessions.
-- Introduce LangGraph/LangChain integration *only* when agentic workflows require it.
 - Support additional vector databases beyond ChromaDB.
