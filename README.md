@@ -99,7 +99,7 @@ We conducted a synthetic research benchmark (Sprint 18) to measure ContextOS's a
 - **Baseline Prompt:** 4316 tokens
 - **ContextOS Prompt:** 1680 tokens
 - **Reduction:** 61.08%
-- **Fact Retention:** 100%
+- **Fact Retention:** 90%
 - **Pipeline Latency:** ~169ms
 
 > **Note:** This is a synthetic benchmark measuring architectural efficiency. We make no claims regarding actual dollar savings, production-scale TTFT improvements, or overall performance without direct measurement in a production environment.
