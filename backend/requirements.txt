@@ -21,3 +21,7 @@ langchain-openai
 langchain-google-genai
 langchain-anthropic
 langgraph
+httpx
+pytest
+requests
+numpy
